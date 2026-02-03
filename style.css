@@ -3,78 +3,26 @@
     --card-bg: #1e293b;
     --primary: #8b5cf6;
     --accent: #10b981;
-    --wrong: #ef4444;
     --text: #f8fafc;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text);
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.game-container {
-    width: 90%;
-    max-width: 500px;
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    text-align: center;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    font-weight: bold;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 10px;
-}
-
+body { font-family: sans-serif; background: var(--bg-color); color: var(--text); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.game-container { width: 90%; max-width: 500px; background: var(--card-bg); padding: 20px; border-radius: 15px; text-align: center; }
+header { display: flex; justify-content: space-between; padding-bottom: 10px; border-bottom: 1px solid #334155; margin-bottom: 20px; }
 .hidden { display: none; }
+button { background: var(--primary); color: white; border: none; padding: 12px; margin: 5px; border-radius: 8px; cursor: pointer; width: 100%; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.2s;
-}
+/* Modal Styles */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 100; }
+.modal-content { background: var(--card-bg); padding: 30px; border-radius: 15px; text-align: center; }
+.avatar-grid { font-size: 2rem; margin: 20px 0; cursor: pointer; }
+.avatar-opt { margin: 10px; padding: 5px; border-radius: 5px; }
+.avatar-opt:hover { background: var(--primary); }
+#username-input { padding: 10px; border-radius: 5px; border: none; width: 80%; margin-bottom: 10px; }
 
-button:hover { opacity: 0.9; transform: translateY(-2px); }
-button:disabled { background: #475569; cursor: not-allowed; }
-
-.grid, .options-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.vertical-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.lifelines {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #334155;
-}
-
-.lifelines button {
-    font-size: 0.8rem;
-    background: #475569;
-}
-
-.correct { background-color: var(--accent) !important; }
-.wrong { background-color: var(--wrong) !important; }
+/* Leaderboard Table */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 10px; border-bottom: 1px solid #334155; text-align: left; }
+.correct { background: var(--accent) !important; }
+.wrong { background: #ef4444 !important; }
